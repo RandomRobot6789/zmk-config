@@ -20,6 +20,6 @@
 ---
 include:
   - board: nice_nano_v2
-    shield: RandomRobot_aluminum_left
+    shield: aluminum_keyboard_left
   - board: nice_nano_v2
-    shield: RandomRobot_aluminum_right
+    shield: aluminum_keyboard_right
