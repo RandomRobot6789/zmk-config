@@ -13,7 +13,7 @@ manifest:
       remote: zmkfirmware
       import: app/west.yml
     - name: zmk-keyboard-module
-      remote: RandomRobot
+      remote: RandomRobot6789
       revision: main
   self:
     path: config
