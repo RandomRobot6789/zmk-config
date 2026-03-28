@@ -19,9 +19,9 @@
 #
 ---
 include:
-  - board: nice_nano_v2
+  - board: nice_nano//zmk
     shield: aluminum_left
     snippet: zmk-usb-logging
-  - board: nice_nano_v2
+  - board: nice_nano//zmk
     shield: aluminum_right
     snippet: zmk-usb-logging
