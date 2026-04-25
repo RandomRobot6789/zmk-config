@@ -7,6 +7,25 @@
 };
 
 / {
+    macros {
+        login_to_server: login_to_server {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap LC(LA(T))>
+                , <&macro_tap &kp S &kp S &kp H &kp SPACE>
+                , <&macro_tap &kp A &kp N &kp D &kp R &kp E &kp W &kp P &kp J &kp E &kp N &kp K &kp I &kp N &kp S>
+                , <&macro_press &kp LSHFT>
+                , <&macro_tap &kp 2>
+                , <&macro_release &kp LSHFT>
+                , <&macro_tap &kp H &kp O &kp M &kp E &kp S &kp E &kp R &kp V &kp E &kp R>
+                , <&macro_tap RET>
+                ;
+        };
+    };
+};
+
+/ {
     keymap {
         compatible = "zmk,keymap";
 
@@ -21,16 +40,51 @@
     // Row 3
                    &kp KP_PLUS   &kp KP_N6     &kp KP_N5     &kp KP_N4       &kp CAPS       &kp A     &kp S     &kp D     &kp F     &kp G         &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT       &kp RET
     // Row 4
-                                 &kp KP_N3     &kp KP_N2     &kp KP_N1       &kp LSHFT      &kp Z     &kp X     &kp C     &kp V     &kp B         &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp RSHFT   &tog 1                         &kp UP
+                                 &kp KP_N3     &kp KP_N2     &kp KP_N1       &kp LSHFT      &kp Z     &kp X     &kp C     &kp V     &kp B         &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp RSHFT   &sl 1                         &kp UP
     // Row 5
-                   &kp KP_ENTER  &kp KP_DOT &kp KP_N0                       &kp LCTRL &kp LGUI &kp LALT &kp ESC         &kp BSPC     &kp SPACE   &kp RALT    &kp RGUI  &kp K_APP &kp RCTRL                                    &kp LEFT    &kp DOWN  &kp RIGHT
+                   &kp KP_ENTER  &kp KP_DOT &kp KP_N0                       &kp LCTRL &kp LGUI &kp LALT &kp ESC         &kp BSPC     &kp SPACE   &kp RALT    &kp RGUI  &tog 2 &kp RCTRL                                    &kp LEFT    &kp DOWN  &kp RIGHT
             >;
         };
 
         function_layer {
             bindings = <
     // Row 0
-    &kp C_AL_CALCULATOR  &trans  &kp C_BRI_DN  &kp C_BRI_UP &trans &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &bt BT_CLR_ALL  &trans  &trans  &trans
+    &kp C_AL_CALCULATOR  &trans  &trans  &trans &trans &kp F13  &kp F14  &kp F15  &kp F16  &kp F17  &kp F18  &kp F19  &kp F20  &kp F21  &kp F22 &kp F23  &kp F24  &trans  &trans  &trans  &trans
+    // Row 1
+    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+    // Row 2
+    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &login_to_server  &trans
+    // Row 3
+    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+    // Row 4
+    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+    // Row 5
+    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp K_APP  &trans
+            >;
+        };
+
+
+        system_layer {
+            bindings = <
+    // Row 0
+    &trans  &trans  &kp C_BRI_DN  &kp C_BRI_UP &trans &trans &trans &trans &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+    // Row 1
+    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &bt BT_SEL 1
+    // Row 2
+    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &bt BT_CLR  &trans  &bt BT_SEL 0
+    // Row 3
+    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+    // Row 4
+    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+    // Row 5 windows update haha
+    &trans  &trans  &trans  &trans  &bootloader  &trans  &trans  &trans  &trans  &trans  &bootloader  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        dunno_what {
+            bindings = <
+    // Row 0
+    &kp C_AL_CALCULATOR  &trans  &kp C_BRI_DN  &kp C_BRI_UP &trans &kp F13  &kp F14  &kp F15  &kp F16  &kp F17  &kp F18  &kp F19  &kp F20  &kp F21  &kp F22 &kp F23  &kp F24  &bt BT_CLR_ALL  &trans  &trans  &trans
     // Row 1
     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
     // Row 2
