@@ -21,7 +21,7 @@
                 , <&macro_tap &kp 2>
                 , <&macro_release &kp LSHFT>
                 , <&macro_tap &kp H &kp O &kp M &kp E &kp S &kp E &kp R &kp V &kp E &kp R>
-                , <&macro_tap RET>
+                , <&macro_tap &kp RET>
                 ;
         };
     };
