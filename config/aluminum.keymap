@@ -11,6 +11,8 @@
         login_to_server: login_to_server {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
             bindings
                 = <&macro_tap &kp LC(LA(T))>
                 , <&macro_tap &kp S &kp S &kp H &kp SPACE>
